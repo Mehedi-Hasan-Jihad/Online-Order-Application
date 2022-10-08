@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+{% block content %}
+    <!-- Forms Start -->
+    <div class="container" style="max-width:70%;">
+        <div class='row mt-5'>
+            <h3>Order Application</h3>
+        </div>
+        <div class="row">
+            <form action="#" method="post">
+                {% csrf_token %}
+                <label for="exampleInputEmail" class="form-label">{{forms.customer_id.label}}</label>
+                <div>{{ forms.customer_id }}</div>
+                <label for="exampleInputEmail1" class="form-label">{{ forms.product_id.label }}</label>
+                <div class="form-control">{{ forms.product_id }}</div>
+                <label for="exampleInputEmail1" class="form-label">{{ forms.quantity.label }}</label>
+                <div class="form-control">{{ forms.quantity }}</div>
+                <label for="exampleInputEmail1" class="form-label">{{ forms.delivery.label }}</label>
+                <div class="form-control">{{ forms.delivery }}</div>
+
+
+
+                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forms end -->
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'master.html' %} 
+
+{% block content %}
+    <div class="row container-fluid">
+        <h3>Order list</h3>
+
+        <table class="table">
+            <thead>
+              <tr >
+                
+                <th scope="col">ID</th>
+                <th scope="col">Customer name</th>
+                <th scope="col">Customer phone</th>
+                <th scope="col">Customer email</th>
+                <th scope="col">Product name</th>
+                <th scope="col">Product price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Delivery Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for order in order_list %} 
+                <tr>
+                    <th >{{order.id}}</th>
+                    <th>{{ order.customer_id }}</th>
+                    <td>{{order.customer_id.phone}}</td>
+                    <td>{{order.customer_id.email}}</td>
+                    <td >{{ order.product_id }}</td>
+                    <td>{{order.product_id}}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.delivery }}</td>
+                    <td>
+        
+                        <div class="btn-group" role="group" aria-label="Data Action">
+                            <a class="btn btn-primary" href="{% url 'order_details' order.id %}">Show</a>
+                            <a class="btn btn-secondary" href="{% url 'update_order' order.id %}">Edit</a>
+                            <a class="btn btn-danger" href="{%url 'delete_order' order.id %}" >Delete</a>
+                        </div>
+                {% endfor %} 
+                
+
+            
+            
+        
+
+    </div> 
+
+
+
+
+
+
+{%endblock%}

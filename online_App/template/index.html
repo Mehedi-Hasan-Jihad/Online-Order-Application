@@ -1,0 +1,48 @@
+{% extends 'master.html' %} 
+
+{% block content %}
+<div style="text-align: center;">
+    <h3 style="text-decoration: underline;">Home Page</h3>
+</div>
+
+<div class="container-fluid" style="width: 70%; text-align: center;">
+    <div class="row">
+        <table class="table">
+            <thead>
+              <tr >
+                
+                <th scope="col">ID</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for category in categories%}
+                <tr>
+                    <th >{{category.id}}</th>
+                    <td class="">{{category.category_name}}</td>
+                    <td>{{category.category_description}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Data Action">
+                            <a class="btn btn-primary" href="{% url 'show_category' category.id %}">Show</a>
+                            <a class="btn btn-secondary"> edit</a>
+                            <a class="btn btn-danger">delete</a>                            
+                        </div>
+                    </td>
+    
+    
+
+                    {%endfor%}
+                </tr> 
+
+            </tbody>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{%endblock%}
